@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Larika Flash</title>
+    <title>KURXIS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
 <div class="container">
 
     <div class="logo" id="logo-admin">
-        <img src="logo.png" alt="Larika Flash">
+        <img src="logo.png" alt="KURXIS">
     </div>
 
     <div id="status-loja" class="status aberto">
@@ -26,15 +26,24 @@
 
     <h2>Escolha o seu combo</h2>
 
-    <div class="combo">
-        <img src="supercombo.png" class="combo-img" alt="Super Combo Larikão">
-        <h3>Super Combo Larikão — R$ 139</h3>
+    <div class="combo destaque">
+        <span class="badge-top">👑 COMBO MAIS VENDIDO</span>
+        <img src="familia.png" class="combo-img" alt="Família KURXIS">
+        <h3>👑 Família KURXIS — <span style="text-decoration:line-through; color:#999;">R$ 99,90</span> R$ 89,90</h3>
         <p>
-            • 6 Turbo Cheddar Bacon<br>
-            • 6 Batatas Fritas<br>
-            • 1 Coca-Cola 2L<br>
-            • 1 Caixa de Bis
+            • 4 xis<br>
+            • 4 batatinhas 100g<br>
+            • 4 coquinha pitulinha ou 1 refri grande<br>
+            • Maionese verde
         </p>
+
+        <select id="sabor-0">
+            <option value="">Escolha o sabor dos xis</option>
+            <option value="Salada">Salada</option>
+            <option value="Calabresa">Calabresa</option>
+            <option value="Frango">Frango</option>
+        </select>
+
         <div class="controls">
             <button onclick="remover(0)">-</button>
             <span id="qtd-0">0</span>
@@ -42,15 +51,23 @@
         </div>
     </div>
 
-    <div class="combo destaque">
-        <span class="badge-top">👑 COMBO MAIS VENDIDO</span>
-        <img src="mega.png" class="combo-img" alt="Mega Combo">
-        <h3>👑 Mega Combo — R$ 99</h3>
+    <div class="combo">
+        <img src="duplo.png" class="combo-img" alt="Duplo KURXIS">
+        <h3>Duplo KURXIS — R$ 57,90</h3>
         <p>
-            • 4 Turbo Cheddar Bacon<br>
-            • 4 Batatas Fritas<br>
-            • 1 Coca-Cola 1,5L
+            • 2 xis<br>
+            • 2 batatinhas 100g<br>
+            • 2 coquinha pitulinha<br>
+            • Maionese verde
         </p>
+
+        <select id="sabor-1">
+            <option value="">Escolha o sabor dos xis</option>
+            <option value="Salada">Salada</option>
+            <option value="Calabresa">Calabresa</option>
+            <option value="Frango">Frango</option>
+        </select>
+
         <div class="controls">
             <button onclick="remover(1)">-</button>
             <span id="qtd-1">0</span>
@@ -59,13 +76,21 @@
     </div>
 
     <div class="combo">
-        <img src="familia.png" class="combo-img" alt="Combo Família">
-        <h3>Combo Família — R$ 75</h3>
+        <img src="solo.png" class="combo-img" alt="Solo KURXIS">
+        <h3>Solo KURXIS — R$ 27,90</h3>
         <p>
-            • 3 Turbo Cheddar Bacon<br>
-            • 3 Batatas Fritas<br>
-            • 3 Coca 200ml
+            • 1 xis<br>
+            • 100g batatinha<br>
+            • Maionese verde
         </p>
+
+        <select id="sabor-2">
+            <option value="">Escolha o sabor do xis</option>
+            <option value="Salada">Salada</option>
+            <option value="Calabresa">Calabresa</option>
+            <option value="Frango">Frango</option>
+        </select>
+
         <div class="controls">
             <button onclick="remover(2)">-</button>
             <span id="qtd-2">0</span>
@@ -73,14 +98,12 @@
         </div>
     </div>
 
+    <h2>Bebidas</h2>
+
     <div class="combo">
-        <img src="casal.png" class="combo-img" alt="Combo Casal">
-        <h3>Combo Casal — R$ 59</h3>
-        <p>
-            • 2 Turbo Cheddar Bacon<br>
-            • 2 Batatas Fritas<br>
-            • 2 Coca 200ml
-        </p>
+        <img src="fruk.png" class="combo-img" alt="Fruk 2L">
+        <h3>Fruk 2L — R$ 12</h3>
+        <p>• Refrigerante Fruk 2 litros</p>
         <div class="controls">
             <button onclick="remover(3)">-</button>
             <span id="qtd-3">0</span>
@@ -89,74 +112,13 @@
     </div>
 
     <div class="combo">
-        <img src="solteiro.png" class="combo-img" alt="Solteiro">
-        <h3>Solteiro — R$ 39</h3>
-        <p>
-            • Pão brioche<br>
-            • Carne artesanal (110g)<br>
-            • Bacon crocante<br>
-            • Queijo Cheddar<br>
-            • Molho cheddar<br>
-            • Molho Especial da casa<br>
-            • Barbecue<br>
-            • Alface fresca<br>
-            • Tomate<br>
-            • Cebola roxa
-        </p>
+        <img src="coca15l.png" class="combo-img" alt="Coca-Cola 1,5L">
+        <h3>Coca-Cola 1,5L — R$ 16</h3>
+        <p>• Refrigerante Coca-Cola 1,5 litros</p>
         <div class="controls">
             <button onclick="remover(4)">-</button>
             <span id="qtd-4">0</span>
             <button onclick="adicionar(4)">+</button>
-        </div>
-    </div>
-
-    <h2>Adicionais</h2>
-
-    <div class="combo">
-        <img src="fritas-cheddar-bacon.png" class="combo-img" alt="600g Fritas com Cheddar e Bacon">
-        <h3>600g Fritas com Cheddar e Bacon — R$ 37</h3>
-        <p>
-            • Porção de 600g<br>
-            • Cheddar<br>
-            • Bacon
-        </p>
-        <div class="controls">
-            <button onclick="remover(6)">-</button>
-            <span id="qtd-6">0</span>
-            <button onclick="adicionar(6)">+</button>
-        </div>
-    </div>
-
-    <div class="combo">
-        <img src="pepsi2l.png" class="combo-img" alt="Pepsi 2L">
-        <h3>Pepsi 2L — R$ 18</h3>
-        <p>• Refrigerante Pepsi 2 litros</p>
-        <div class="controls">
-            <button onclick="remover(7)">-</button>
-            <span id="qtd-7">0</span>
-            <button onclick="adicionar(7)">+</button>
-        </div>
-    </div>
-
-    <div class="combo">
-        <img src="coca15l.png" class="combo-img" alt="Coca-Cola 1,5L">
-        <h3>Coca-Cola 1,5L — R$ 18</h3>
-        <p>• Refrigerante Coca-Cola 1,5 litros</p>
-        <div class="controls">
-            <button onclick="remover(8)">-</button>
-            <span id="qtd-8">0</span>
-            <button onclick="adicionar(8)">+</button>
-        </div>
-    </div>
-
-    <div class="combo">
-        <img src="bis.png" class="combo-img" alt="Caixa de Bis">
-        <h3>Caixa de Bis — R$ 14</h3>
-        <p>• Caixa de chocolate Bis</p>
-        <div class="controls">
-            <button onclick="remover(9)">-</button>
-            <span id="qtd-9">0</span>
-            <button onclick="adicionar(9)">+</button>
         </div>
     </div>
 
@@ -170,8 +132,8 @@
 
         <select id="bairro" onchange="calcularTotal()">
             <option value="">Selecione o bairro</option>
-            <option value="6">Rio Vermelho — R$ 6</option>
-            <option value="6">Ingleses — R$ 6</option>
+            <option value="1">Rio Vermelho — R$ 1</option>
+            <option value="3">Ingleses — R$ 3</option>
         </select>
 
         <select id="pagamento">
