@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Larika Flash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo" id="logo-admin">
+        <img src="logo.png" alt="Larika Flash">
+    </div>
+
+    <div id="status-loja" class="status aberto">
+        🟢 Aberto • faça seu pedido
+    </div>
+
+    <button id="admin-toggle" onclick="toggleLoja()" style="display:none; margin:10px auto;">
+        🔒 Abrir / Fechar loja
+    </button>
+
+    <h2>Escolha o seu combo</h2>
+
+    <div class="combo">
+        <img src="supercombo.png" class="combo-img" alt="Super Combo Larikão">
+        <h3>Super Combo Larikão — R$ 139</h3>
+        <p>
+            • 6 Turbo Cheddar Bacon<br>
+            • 6 Batatas Fritas<br>
+            • 1 Coca-Cola 2L<br>
+            • 1 Caixa de Bis
+        </p>
+        <div class="controls">
+            <button onclick="remover(0)">-</button>
+            <span id="qtd-0">0</span>
+            <button onclick="adicionar(0)">+</button>
+        </div>
+    </div>
+
+    <div class="combo destaque">
+        <span class="badge-top">👑 COMBO MAIS VENDIDO</span>
+        <img src="mega.png" class="combo-img" alt="Mega Combo">
+        <h3>👑 Mega Combo — R$ 99</h3>
+        <p>
+            • 4 Turbo Cheddar Bacon<br>
+            • 4 Batatas Fritas<br>
+            • 1 Coca-Cola 1,5L
+        </p>
+        <div class="controls">
+            <button onclick="remover(1)">-</button>
+            <span id="qtd-1">0</span>
+            <button onclick="adicionar(1)">+</button>
+        </div>
+    </div>
+
+    <div class="combo">
+        <img src="familia.png" class="combo-img" alt="Combo Família">
+        <h3>Combo Família — R$ 75</h3>
+        <p>
+            • 3 Turbo Cheddar Bacon<br>
+            • 3 Batatas Fritas<br>
+            • 3 Coca 200ml
+        </p>
+        <div class="controls">
+            <button onclick="remover(2)">-</button>
+            <span id="qtd-2">0</span>
+            <button onclick="adicionar(2)">+</button>
+        </div>
+    </div>
+
+    <div class="combo">
+        <img src="casal.png" class="combo-img" alt="Combo Casal">
+        <h3>Combo Casal — R$ 59</h3>
+        <p>
+            • 2 Turbo Cheddar Bacon<br>
+            • 2 Batatas Fritas<br>
+            • 2 Coca 200ml
+        </p>
+        <div class="controls">
+            <button onclick="remover(3)">-</button>
+            <span id="qtd-3">0</span>
+            <button onclick="adicionar(3)">+</button>
+        </div>
+    </div>
+
+    <div class="combo">
+        <img src="solteiro.png" class="combo-img" alt="Solteiro">
+        <h3>Solteiro — R$ 39</h3>
+        <p>
+            • Pão brioche<br>
+            • Carne artesanal (110g)<br>
+            • Bacon crocante<br>
+            • Queijo Cheddar<br>
+            • Molho cheddar<br>
+            • Molho Especial da casa<br>
+            • Barbecue<br>
+            • Alface fresca<br>
+            • Tomate<br>
+            • Cebola roxa
+        </p>
+        <div class="controls">
+            <button onclick="remover(4)">-</button>
+            <span id="qtd-4">0</span>
+            <button onclick="adicionar(4)">+</button>
+        </div>
+    </div>
+
+    <h2>Adicionais</h2>
+
+    <div class="combo">
+        <img src="fritas-cheddar-bacon.png" class="combo-img" alt="600g Fritas com Cheddar e Bacon">
+        <h3>600g Fritas com Cheddar e Bacon — R$ 37</h3>
+        <p>
+            • Porção de 600g<br>
+            • Cheddar<br>
+            • Bacon
+        </p>
+        <div class="controls">
+            <button onclick="remover(6)">-</button>
+            <span id="qtd-6">0</span>
+            <button onclick="adicionar(6)">+</button>
+        </div>
+    </div>
+
+    <div class="combo">
+        <img src="pepsi2l.png" class="combo-img" alt="Pepsi 2L">
+        <h3>Pepsi 2L — R$ 18</h3>
+        <p>• Refrigerante Pepsi 2 litros</p>
+        <div class="controls">
+            <button onclick="remover(7)">-</button>
+            <span id="qtd-7">0</span>
+            <button onclick="adicionar(7)">+</button>
+        </div>
+    </div>
+
+    <div class="combo">
+        <img src="coca15l.png" class="combo-img" alt="Coca-Cola 1,5L">
+        <h3>Coca-Cola 1,5L — R$ 18</h3>
+        <p>• Refrigerante Coca-Cola 1,5 litros</p>
+        <div class="controls">
+            <button onclick="remover(8)">-</button>
+            <span id="qtd-8">0</span>
+            <button onclick="adicionar(8)">+</button>
+        </div>
+    </div>
+
+    <div class="combo">
+        <img src="bis.png" class="combo-img" alt="Caixa de Bis">
+        <h3>Caixa de Bis — R$ 14</h3>
+        <p>• Caixa de chocolate Bis</p>
+        <div class="controls">
+            <button onclick="remover(9)">-</button>
+            <span id="qtd-9">0</span>
+            <button onclick="adicionar(9)">+</button>
+        </div>
+    </div>
+
+    <div class="resumo">
+        <h2>Informações do pedido</h2>
+
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+            <input type="text" id="rua" placeholder="Nome da rua" style="flex:2;">
+            <input type="text" id="numero" placeholder="Nº" style="flex:1;">
+        </div>
+
+        <select id="bairro" onchange="calcularTotal()">
+            <option value="">Selecione o bairro</option>
+            <option value="6">Rio Vermelho — R$ 6</option>
+            <option value="6">Ingleses — R$ 6</option>
+        </select>
+
+        <select id="pagamento">
+            <option value="Pix">📲 Pix</option>
+        </select>
+
+        <textarea id="observacao" rows="3" placeholder="Observações: tirar cebola, carne bem passada..." style="width:100%; padding:14px; border-radius:12px; border:1px solid #e6e6e6; margin-bottom:14px; font-size:14px; resize:none;"></textarea>
+
+        <div style="background:#f5fff7; border:1px solid #cceedd; padding:12px; border-radius:12px; margin-bottom:12px; font-size:14px; text-align:center;">
+            📲 <strong>Pagamento via Pix.</strong><br>
+            A chave será enviada pelo WhatsApp após a confirmação do pedido.
+        </div>
+
+        <h2>Total: R$ <span id="total">0,00</span></h2>
+
+        <button class="btn-whatsapp" onclick="enviarPedido()">
+            <span class="wh-circle"></span>
+            Peça agora no WhatsApp
+        </button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
