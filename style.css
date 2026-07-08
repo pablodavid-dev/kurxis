@@ -1,24 +1,19 @@
 /* =====================================
    KURXIS — IFOOD STYLE UI
-   CLEAN • PREMIUM • FAMILIAR
+   CLEAN • PREMIUM • LEVE
 ===================================== */
 
 :root {
     --bg-main: #d3d3d3;
     --bg-surface: #ffffff;
-
     --text-primary: #1c1c1c;
     --text-secondary: #555555;
     --text-muted: #777777;
-
     --accent-red: #ea1d2c;
     --accent-red-soft: #fdebec;
-
     --border-light: #e6e6e6;
-
     --radius-xl: 18px;
     --radius-md: 12px;
-
     --shadow-soft: 0 6px 18px rgba(0,0,0,0.08);
     --shadow-hover: 0 10px 26px rgba(0,0,0,0.12);
 }
@@ -51,7 +46,7 @@ body {
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #ffffff;
+    border: 4px solid #fff;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
@@ -67,7 +62,7 @@ h2 {
     margin-bottom: 16px;
 }
 
-/* STATUS DA LOJA */
+/* STATUS */
 
 #status-loja {
     display: block;
@@ -81,18 +76,18 @@ h2 {
 }
 
 #status-loja.aberto {
-    background: rgba(37, 211, 102, 0.12);
+    background: rgba(37,211,102,0.12);
     color: #1a7f37;
-    border: 1px solid rgba(37, 211, 102, 0.4);
+    border: 1px solid rgba(37,211,102,0.4);
 }
 
 #status-loja.fechado {
-    background: rgba(234, 29, 44, 0.08);
+    background: rgba(234,29,44,0.08);
     color: #ea1d2c;
-    border: 1px solid rgba(234, 29, 44, 0.3);
+    border: 1px solid rgba(234,29,44,0.3);
 }
 
-/* COMBOS */
+/* CARDS */
 
 .combo {
     position: relative;
@@ -151,9 +146,12 @@ h2 {
     padding-right: 165px;
 }
 
-.combo .controls {
-    padding-right: 165px;
+.combo .controls,
+.combo select {
+    margin-right: 165px;
 }
+
+/* IMAGEM CORRIGIDA — SEM BORDA PRETA */
 
 .combo img {
     position: absolute;
@@ -164,8 +162,8 @@ h2 {
     height: 140px;
     max-width: 35%;
     border-radius: 12px;
-    object-fit: contain;
-    background: #000;
+    object-fit: cover;
+    background: transparent;
 }
 
 /* CONTROLES */
@@ -200,7 +198,7 @@ h2 {
     color: var(--text-primary);
 }
 
-/* RESUMO / FORM */
+/* FORM */
 
 .resumo {
     margin-top: 28px;
@@ -239,7 +237,7 @@ textarea:focus {
     color: var(--text-primary);
 }
 
-/* BOTÃO WHATSAPP */
+/* WHATSAPP */
 
 .btn-whatsapp {
     width: 100%;
@@ -250,12 +248,10 @@ textarea:focus {
     font-weight: 700;
     cursor: pointer;
     color: #fff;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-
     background: #25d366;
     box-shadow: 0 10px 30px rgba(37,211,102,0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -276,38 +272,46 @@ textarea:focus {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(0,255,106, 0.7);
+        box-shadow: 0 0 0 0 rgba(0,255,106,0.7);
     }
     70% {
-        box-shadow: 0 0 0 12px rgba(0,255,106, 0);
+        box-shadow: 0 0 0 12px rgba(0,255,106,0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(0,255,106, 0);
+        box-shadow: 0 0 0 0 rgba(0,255,106,0);
     }
 }
 
 /* MOBILE */
 
 @media (max-width: 600px) {
+    .container {
+        padding: 16px 14px 42px;
+    }
+
     .combo {
         padding: 18px;
+        min-height: auto;
     }
 
     .combo img {
         position: static;
         transform: none;
         width: 100%;
-        height: 180px;
+        height: 260px;
         max-width: 100%;
         margin-top: 14px;
-        object-fit: contain;
-        background: #000;
+        object-fit: cover;
+        background: transparent;
+        border-radius: 14px;
     }
 
     .combo h3,
     .combo p,
-    .combo .controls {
+    .combo .controls,
+    .combo select {
         padding-right: 0;
+        margin-right: 0;
     }
 
     .combo.destaque h3 {
