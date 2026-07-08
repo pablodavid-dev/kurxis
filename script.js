@@ -7,18 +7,18 @@ let lojaAberta = false;
 var quantidades = [0, 0, 0, 0, 0];
 
 var precos = [
-    89.90,
+    94.99,
     57.90,
     27.90,
-    18.00,
-    18.00
+    12.00,
+    16.00
 ];
 
 var nomesCombos = [
     "Família KURXIS",
     "Duplo KURXIS",
     "Solo KURXIS",
-    "Pepsi 2L",
+    "Fruk 2L",
     "Coca-Cola 1,5L"
 ];
 
@@ -26,7 +26,7 @@ var nomesCombos = [
 /* ============================
    HORÁRIO DE FUNCIONAMENTO
    TODOS OS DIAS
-   19:00 ÀS 02:00
+   19:00 ÀS 00:00
 ============================ */
 
 function lojaEstaAbertaAgora() {
@@ -38,7 +38,7 @@ function lojaEstaAbertaAgora() {
 
     const hora = agoraBrasilia.getHours();
 
-    return hora >= 19 || hora < 2;
+    return hora >= 19 && hora < 24;
 }
 
 
@@ -111,7 +111,7 @@ function atualizarStatusLoja() {
     } else {
         status.className = "status fechado";
         status.innerText =
-            "🔴 Loja fechada • abre todos os dias das 19h às 02h";
+            "🔴 Loja fechada • abre todos os dias das 19h às 00h";
     }
 }
 
@@ -130,7 +130,7 @@ function enviarPedido() {
     atualizarStatusLoja();
 
     if (!lojaAberta) {
-        alert("A loja está fechada no momento. Funcionamos das 19h às 02h.");
+        alert("A loja está fechada no momento. Funcionamos das 19h às 00h.");
         return;
     }
 
