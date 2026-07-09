@@ -139,6 +139,10 @@ function enviarPedido() {
     const bairro = document.getElementById("bairro");
     const observacao = document.getElementById("observacao");
 
+    const saborFamilia = document.getElementById("sabor-0");
+    const saborDuplo = document.getElementById("sabor-1");
+    const saborSolo = document.getElementById("sabor-2");
+
     let mensagem = "🍔 PEDIDO - KURXIS\n\n";
 
     let subtotal = 0;
@@ -148,6 +152,21 @@ function enviarPedido() {
 
         if (quantidades[i] > 0) {
 
+            if (i === 0 && saborFamilia.value === "") {
+                alert("Escolha o sabor dos xis do Família KURXIS.");
+                return;
+            }
+
+            if (i === 1 && saborDuplo.value === "") {
+                alert("Escolha o sabor dos xis do Duplo KURXIS.");
+                return;
+            }
+
+            if (i === 2 && saborSolo.value === "") {
+                alert("Escolha o sabor do xis do Solo KURXIS.");
+                return;
+            }
+
             mensagem +=
                 quantidades[i] +
                 "x " +
@@ -155,6 +174,20 @@ function enviarPedido() {
                 " - R$ " +
                 (quantidades[i] * precos[i]).toFixed(2).replace(".", ",") +
                 "\n";
+
+            if (i === 0) {
+                mensagem += "Sabor dos xis: " + saborFamilia.value + "\n";
+            }
+
+            if (i === 1) {
+                mensagem += "Sabor dos xis: " + saborDuplo.value + "\n";
+            }
+
+            if (i === 2) {
+                mensagem += "Sabor do xis: " + saborSolo.value + "\n";
+            }
+
+            mensagem += "\n";
 
             subtotal +=
                 quantidades[i] * precos[i];
