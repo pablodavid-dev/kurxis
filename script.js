@@ -7,7 +7,7 @@ let lojaAberta = false;
 var quantidades = [0, 0, 0, 0, 0];
 
 var precos = [
-    94.99,
+    89.99,
     57.90,
     27.90,
     12.00,
