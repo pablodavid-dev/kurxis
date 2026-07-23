@@ -1,52 +1,51 @@
-/* ============================
-   CONFIGURAÇÃO INICIAL
-============================ */
-
 let lojaAberta = false;
 
-var quantidades = [0, 0, 0, 0, 0];
+let quantidades = [0,0,0,0,0,0,0,0,0];
 
-var precos = [
-    89.99,
+let precos = [
+    94.99,
     57.90,
-    27.90,
+    22.90,
+    23.90,
+    23.90,
+    25.90,
+    26.90,
     12.00,
     16.00
 ];
 
-var nomesCombos = [
+let nomesCombos = [
     "Família KURXIS",
     "Duplo KURXIS",
-    "Solo KURXIS",
+    "Xis Salada",
+    "Xis Frango",
+    "Xis Calabresa",
+    "Xis Calafrango",
+    "Xis Fricassê de Frango",
     "Fruk 2L",
     "Coca-Cola 1,5L"
 ];
 
 
-/* ============================
-   HORÁRIO DE FUNCIONAMENTO
-   TODOS OS DIAS
-   19:00 ÀS 00:00
-============================ */
+// HORÁRIO DA LOJA
+function lojaEstaAbertaAgora(){
 
-function lojaEstaAbertaAgora() {
-    const agoraBrasilia = new Date(
+    const agora = new Date(
         new Date().toLocaleString("en-US", {
-            timeZone: "America/Sao_Paulo"
+            timeZone:"America/Sao_Paulo"
         })
     );
 
-    const hora = agoraBrasilia.getHours();
+    const hora = agora.getHours();
 
     return hora >= 19 && hora < 24;
 }
 
 
-/* ============================
-   CONTROLE DE QUANTIDADE
-============================ */
 
-function adicionar(index) {
+// ADICIONAR PRODUTO
+function adicionar(index){
+
     quantidades[index]++;
 
     document.getElementById("qtd-" + index).innerText =
@@ -55,221 +54,322 @@ function adicionar(index) {
     calcularTotal();
 }
 
-function remover(index) {
-    if (quantidades[index] > 0) {
+
+
+// REMOVER PRODUTO
+function remover(index){
+
+    if(quantidades[index] > 0){
+
         quantidades[index]--;
 
         document.getElementById("qtd-" + index).innerText =
             quantidades[index];
 
         calcularTotal();
+
     }
+
 }
 
 
-/* ============================
-   CÁLCULO TOTAL
-============================ */
 
-function calcularTotal() {
+// CALCULAR TOTAL
+function calcularTotal(){
 
     let subtotal = 0;
 
-    for (let i = 0; i < quantidades.length; i++) {
+
+    for(let i = 0; i < quantidades.length; i++){
+
         subtotal += quantidades[i] * precos[i];
+
     }
+
 
     let taxaEntrega = 0;
 
     const bairro = document.getElementById("bairro");
 
-    if (bairro && bairro.value !== "") {
+
+    if(bairro && bairro.value !== ""){
+
         taxaEntrega = parseFloat(bairro.value);
+
     }
 
-    const total = subtotal + taxaEntrega;
+
+    let total = subtotal + taxaEntrega;
+
 
     document.getElementById("total").innerText =
         total.toFixed(2).replace(".", ",");
+
 }
 
 
-/* ============================
-   STATUS DA LOJA
-============================ */
 
-function atualizarStatusLoja() {
+// STATUS LOJA
+function atualizarStatusLoja(){
 
     lojaAberta = lojaEstaAbertaAgora();
 
     const status = document.getElementById("status-loja");
 
-    if (lojaAberta) {
+
+    if(lojaAberta){
+
         status.className = "status aberto";
+
         status.innerText =
             "🟢 Aberto agora - pedidos liberados";
-    } else {
+
+    }else{
+
         status.className = "status fechado";
+
         status.innerText =
             "🔴 Loja fechada • abre todos os dias das 19h às 00h";
+
     }
+
 }
 
-function toggleLoja() {
+
+
+function toggleLoja(){
+
     lojaAberta = !lojaAberta;
+
     atualizarStatusLoja();
+
 }
 
 
-/* ============================
-   ENVIAR PEDIDO
-============================ */
 
-function enviarPedido() {
+// ENVIAR PEDIDO
+function enviarPedido(){
+
 
     atualizarStatusLoja();
 
-    if (!lojaAberta) {
+
+    if(!lojaAberta){
+
         alert("A loja está fechada no momento. Funcionamos das 19h às 00h.");
+
         return;
+
     }
+
+
 
     const rua = document.getElementById("rua");
+
     const numero = document.getElementById("numero");
+
     const bairro = document.getElementById("bairro");
+
     const observacao = document.getElementById("observacao");
 
-    const saborFamilia = document.getElementById("sabor-0");
-    const saborDuplo = document.getElementById("sabor-1");
-    const saborSolo = document.getElementById("sabor-2");
+
 
     let mensagem = "🍔 PEDIDO - KURXIS\n\n";
 
-    let subtotal = 0;
     let temPedido = false;
 
-    for (let i = 0; i < quantidades.length; i++) {
+    let subtotal = 0;
 
-        if (quantidades[i] > 0) {
 
-            if (i === 0 && saborFamilia.value === "") {
-                alert("Escolha o sabor dos xis do Família KURXIS.");
-                return;
+
+    for(let i = 0; i < quantidades.length; i++){
+
+
+        if(quantidades[i] > 0){
+
+
+            if(i === 0){
+
+                const sabor = document.getElementById("sabor-0");
+
+
+                if(sabor.value === ""){
+
+                    alert("Escolha o sabor do Família KURXIS.");
+
+                    return;
+
+                }
+
+
+                mensagem +=
+                    "Sabor Família: " +
+                    sabor.value +
+                    "\n";
+
             }
 
-            if (i === 1 && saborDuplo.value === "") {
-                alert("Escolha o sabor dos xis do Duplo KURXIS.");
-                return;
+
+
+            if(i === 1){
+
+                const sabor = document.getElementById("sabor-1");
+
+
+                if(sabor.value === ""){
+
+                    alert("Escolha o sabor do Duplo KURXIS.");
+
+                    return;
+
+                }
+
+
+                mensagem +=
+                    "Sabor Duplo: " +
+                    sabor.value +
+                    "\n";
+
             }
 
-            if (i === 2 && saborSolo.value === "") {
-                alert("Escolha o sabor do xis do Solo KURXIS.");
-                return;
-            }
+
 
             mensagem +=
                 quantidades[i] +
                 "x " +
                 nomesCombos[i] +
                 " - R$ " +
-                (quantidades[i] * precos[i]).toFixed(2).replace(".", ",") +
-                "\n";
+                (quantidades[i] * precos[i])
+                .toFixed(2)
+                .replace(".", ",") +
+                "\n\n";
 
-            if (i === 0) {
-                mensagem += "Sabor dos xis: " + saborFamilia.value + "\n";
-            }
 
-            if (i === 1) {
-                mensagem += "Sabor dos xis: " + saborDuplo.value + "\n";
-            }
 
-            if (i === 2) {
-                mensagem += "Sabor do xis: " + saborSolo.value + "\n";
-            }
-
-            mensagem += "\n";
-
-            subtotal +=
-                quantidades[i] * precos[i];
+            subtotal += quantidades[i] * precos[i];
 
             temPedido = true;
+
         }
+
     }
 
-    if (!temPedido) {
+
+
+    if(!temPedido){
+
         alert("Adicione pelo menos um item ao pedido.");
+
         return;
+
     }
 
-    if (subtotal < 25) {
+
+
+    if(subtotal < 25){
+
         alert("Pedido mínimo de R$ 25,00.");
+
         return;
+
     }
 
-    if (rua.value.trim() === "") {
+
+
+    if(rua.value.trim() === ""){
+
         alert("Digite o nome da rua.");
+
         return;
+
     }
 
-    if (!numero || numero.value.trim() === "") {
+
+
+    if(numero.value.trim() === ""){
+
         alert("Digite o número da casa.");
+
         return;
+
     }
 
-    if (bairro.value === "") {
+
+
+    if(bairro.value === ""){
+
         alert("Selecione o bairro.");
+
         return;
+
     }
 
-    mensagem += "\n📍 INFORMAÇÕES\n";
+
+
+    mensagem +=
+        "📍 INFORMAÇÕES\n";
+
 
     mensagem +=
         "Rua: " +
         rua.value +
         "\n";
 
+
     mensagem +=
         "Número: " +
         numero.value +
         "\n";
+
 
     mensagem +=
         "Bairro: " +
         bairro.options[bairro.selectedIndex].text +
         "\n";
 
+
     mensagem +=
         "Pagamento: Pix\n";
 
-    if (observacao.value.trim() !== "") {
 
-        mensagem += "\n📝 OBSERVAÇÃO\n";
+
+    if(observacao.value.trim() !== ""){
+
+        mensagem +=
+            "\n📝 OBSERVAÇÃO\n";
+
 
         mensagem +=
             observacao.value +
             "\n";
+
     }
 
-    const totalFinal =
-        document.getElementById("total").innerText;
+
 
     mensagem +=
         "\n💰 TOTAL: R$ " +
-        totalFinal;
+        document.getElementById("total").innerText;
+
+
 
     window.open(
+
         "https://wa.me/5548984401356?text=" +
         encodeURIComponent(mensagem),
+
         "_blank"
+
     );
+
 }
 
 
-/* ============================
-   INICIALIZAÇÃO
-============================ */
+
+// INICIALIZAÇÃO
 
 atualizarStatusLoja();
+
 calcularTotal();
 
-setInterval(atualizarStatusLoja, 60000);
+setInterval(atualizarStatusLoja,60000);
