@@ -26,16 +26,16 @@
 
     <h2>Escolha o seu combo</h2>
 
-  <div class="combo destaque">
-    <span class="badge-top">👑 COMBO MAIS VENDIDO</span>
-    <img src="familia.png" class="combo-img" alt="Família KURXIS">
-    <h3>👑 Família KURXIS — R$ 89,99</h3>
-    <p>
-        • 4 xis<br>
-        • 4 batatinhas 100g<br>
-        • 4 coquinha pitulinha ou 1 refri grande<br>
-        • Maionese verde
-    </p>
+    <div class="combo destaque">
+        <span class="badge-top">👑 COMBO MAIS VENDIDO</span>
+        <img src="familia.png" class="combo-img" alt="Família KURXIS">
+        <h3>👑 Família KURXIS — R$ 94,99</h3>
+        <p>
+            • 4 xis<br>
+            • 4 batatinhas 100g<br>
+            • 4 coquinha pitulinha ou 1 refri grande<br>
+            • Maionese verde
+        </p>
 
         <select id="sabor-0">
             <option value="">Escolha o sabor dos xis</option>
@@ -75,26 +75,51 @@
         </div>
     </div>
 
+    <h2>Xis Individuais</h2>
+
     <div class="combo">
-        <img src="solo.png" class="combo-img" alt="Solo KURXIS">
-        <h3>Solo KURXIS — R$ 27,90</h3>
-        <p>
-            • 1 xis<br>
-            • 100g batatinha<br>
-            • Maionese verde
-        </p>
-
-        <select id="sabor-2">
-            <option value="">Escolha o sabor do xis</option>
-            <option value="Salada">Salada</option>
-            <option value="Calabresa">Calabresa</option>
-            <option value="Frango">Frango</option>
-        </select>
-
+        <img src="salada.png" class="combo-img" alt="Xis Salada">
+        <h3>Xis Salada — R$ 22,90</h3>
         <div class="controls">
             <button onclick="remover(2)">-</button>
             <span id="qtd-2">0</span>
             <button onclick="adicionar(2)">+</button>
+        </div>
+    </div>
+<div class="combo">
+        <img src="frango.png" class="combo-img" alt="Xis Frango">
+        <h3>Xis Frango — R$ 23,90</h3>
+        <div class="controls">
+            <button onclick="remover(3)">-</button>
+            <span id="qtd-3">0</span>
+            <button onclick="adicionar(3)">+</button>
+        </div>
+    </div>
+<div class="combo">
+        <img src="calabresa.png" class="combo-img" alt="Xis Calabresa">
+        <h3>Xis Calabresa — R$ 23,90</h3>
+        <div class="controls">
+            <button onclick="remover(4)">-</button>
+            <span id="qtd-4">0</span>
+            <button onclick="adicionar(4)">+</button>
+        </div>
+    </div>
+<div class="combo">
+        <img src="calafrango.png" class="combo-img" alt="Xis Calafrango">
+        <h3>Xis Calafrango — R$ 25,90</h3>
+        <div class="controls">
+            <button onclick="remover(5)">-</button>
+            <span id="qtd-5">0</span>
+            <button onclick="adicionar(5)">+</button>
+        </div>
+    </div>
+<div class="combo">
+        <img src="fricasse.png" class="combo-img" alt="Xis Fricassê de Frango">
+        <h3>Xis Fricassê de Frango — R$ 26,90</h3>
+        <div class="controls">
+            <button onclick="remover(6)">-</button>
+            <span id="qtd-6">0</span>
+            <button onclick="adicionar(6)">+</button>
         </div>
     </div>
 
@@ -105,9 +130,9 @@
         <h3>Fruk 2L — R$ 12</h3>
         <p>• Refrigerante Fruk 2 litros</p>
         <div class="controls">
-            <button onclick="remover(3)">-</button>
-            <span id="qtd-3">0</span>
-            <button onclick="adicionar(3)">+</button>
+            <button onclick="remover(7)">-</button>
+            <span id="qtd-7">0</span>
+            <button onclick="adicionar(7)">+</button>
         </div>
     </div>
 
@@ -116,9 +141,9 @@
         <h3>Coca-Cola 1,5L — R$ 16</h3>
         <p>• Refrigerante Coca-Cola 1,5 litros</p>
         <div class="controls">
-            <button onclick="remover(4)">-</button>
-            <span id="qtd-4">0</span>
-            <button onclick="adicionar(4)">+</button>
+            <button onclick="remover(8)">-</button>
+            <span id="qtd-8">0</span>
+            <button onclick="adicionar(8)">+</button>
         </div>
     </div>
 
@@ -132,20 +157,15 @@
 
         <select id="bairro" onchange="calcularTotal()">
             <option value="">Selecione o bairro</option>
-            <option value="1">Rio Vermelho — R$ 1</option>
-            <option value="3">Ingleses — R$ 3</option>
+            <option value="5">Rio Vermelho — R$ 5</option>
+            <option value="7">Ingleses — R$ 7</option>
         </select>
 
         <select id="pagamento">
             <option value="Pix">📲 Pix</option>
         </select>
 
-        <textarea id="observacao" rows="3" placeholder="Observações: tirar cebola, carne bem passada..." style="width:100%; padding:14px; border-radius:12px; border:1px solid #e6e6e6; margin-bottom:14px; font-size:14px; resize:none;"></textarea>
-
-        <div style="background:#f5fff7; border:1px solid #cceedd; padding:12px; border-radius:12px; margin-bottom:12px; font-size:14px; text-align:center;">
-            📲 <strong>Pagamento via Pix.</strong><br>
-            A chave será enviada pelo WhatsApp após a confirmação do pedido.
-        </div>
+        <textarea id="observacao" rows="3" placeholder="Observações"></textarea>
 
         <h2>Total: R$ <span id="total">0,00</span></h2>
 
